@@ -11,6 +11,7 @@ import svgPinkStar from '../assets/pink-star.svg'
 import svgString from '../assets/string.svg'
 
 import { author, buy } from '../sample'
+import profilePicture from '../assets/profilePictureEvelyn.png'
 
 ---
 
@@ -22,15 +23,15 @@ import { author, buy } from '../sample'
           <img src={svgheroContent.src} alt="logo" width="80" />
 
             <h1 class="text-5xl font-medium">
-              <span>I build top <br> notch</span>
+              <span>Diseno <br> arquitectonico</span>
               <span class="relative">
                 <span class="absolute bg-[var(--yellow)] w-full h-[50%] left-0 bottom-0 z-1"></span>
-                <span class="relative z-5">websites</span>
+                <span class="relative z-5">innovador</span>
               </span>
             </h1>
-            <p class="text-xl">Passionate UX Engineer & Designer crafting intuitive, user-centered experiences.</p>
+            <p class="text-xl">Arquitecta especializada en diseno integral, planificacion espacial y soluciones constructivas de calidad.</p>
            <div class="flex mt-5">
-             <Button text="See portfolio" link="/#work" target="_self" />
+             <Button text="Ver portafolio" link="/#work" target="_self" />
            </div>
         </div>
         <div class="relative mt-40 md:mt-0">
@@ -50,10 +51,12 @@ import { author, buy } from '../sample'
 
           <div class="relative p-8 bg-white">
             <img src={svgRedStar.src} width="80" alt="red-star" class="absolute bottom-1 right-1 z-10" />
-            <img src={svgIdea.src} width="60" alt="idea" class="absolute top-16 -left-3 z-10" />   
-            <img src={svgString.src} width="50" alt="string" class="absolute -top-6 -right-2 z-10" />             
-          
-             <div id="me" class="w-full h-[310px] border-2"></div>
+            <img src={svgIdea.src} width="60" alt="idea" class="absolute top-16 -left-3 z-10" />
+            <img src={svgString.src} width="50" alt="string" class="absolute -top-6 -right-2 z-10" />
+
+             <div id="me" class="w-full h-[310px] border-2 overflow-hidden">
+               <img src={profilePicture.src} alt="Evelyn Wong" class="w-full h-full object-cover" />
+             </div>
              <Bars />
           </div>
         </div>
@@ -63,12 +66,3 @@ import { author, buy } from '../sample'
 
     <img src={svgPinkStar.src} alt="start" width="50" class="absolute -bottom-4" />
   </section>
-
-
-  <style>
-    #me{
-     background-image: url('https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-     background-position: top;
-     background-size: cover;
-    }
-   </style>
