@@ -6,21 +6,25 @@ import svgUnderline from '../assets/underline.svg'
 import arrowCard from '../assets/arrow-card.svg'
 
 const portfolio = [
-  { 
-    name: 'Portfolio design', desc: `UI design - User research - webflow development`,
-    cover: `https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`
+  {
+    name: 'Complejo Hospitalario', desc: `Planificación integral y diseño arquitectónico de complejo médico`,
+    cover: `/projects/PL.CONJUNTO. HOSPITAL.pdf`,
+    link: `/projects/PL.CONJUNTO. HOSPITAL.pdf`
   },
-  { 
-    name: 'Portfolio design', desc: `UI design - User research - webflow development`,
-    cover: `https://images.pexels.com/photos/2303781/pexels-photo-2303781.jpeg?auto=compress&cs=tinysrgb&w=1600`
+  {
+    name: 'Proyecto Escolar', desc: `Diseño y planificación de edificio educativo con criterios modernos`,
+    cover: `/projects/AR.ESCUELA.pdf`,
+    link: `/projects/AR.ESCUELA.pdf`
   },
-  { 
-    name: 'Portfolio design', desc: `UI design - User research - webflow development`,
-    cover: `https://images.pexels.com/photos/441963/pexels-photo-441963.jpeg?auto=compress&cs=tinysrgb&w=1600`
+  {
+    name: 'Instalaciones Sanitarias', desc: `Diseño e implementación de sistemas de instalación sanitaria`,
+    cover: `/projects/INS.SANT.01.png`,
+    link: `/projects/INS.SANT.01.png`
   },
-  { 
-    name: 'Portfolio design', desc: `UI design - User research - webflow development`,
-    cover: `https://images.pexels.com/photos/245240/pexels-photo-245240.jpeg?auto=compress&cs=tinysrgb&w=1600`
+  {
+    name: 'Análisis de Precio - Vivienda', desc: `Estudio de costos y análisis económico para proyecto residencial`,
+    cover: `/projects/ANALISIS DE PRECIO. CASA HABITACION.png`,
+    link: `/projects/ANALISIS DE PRECIO. CASA HABITACION.png`
   },
 ]
 ---
@@ -28,15 +32,22 @@ const portfolio = [
 
 <section class="py-25 space-y-10 px-5" id="work">
     <div class="max-w-md mx-auto relative ">
-      <h1 class="text-4xl font-medium text-center">My Portfolio</h1>
+      <h1 class="text-4xl font-medium text-center">Portafolio de Proyectos</h1>
       <img src={svgUnderline.src} alt="arrow" width="140" class="absolute left-50 -bottom-1" />
     </div>
   
-    <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10"> 
-      {portfolio.map(item => ( 
-        <a href={buy.link} target="_blank" class="flex flex-col bg-white p-5 group relative transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-          <div class="w-full h-[200px] overflow-hidden border-2">
-           <img src={item.cover} alt="" class="w-full h-full object-cover" />
+    <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      {portfolio.map(item => (
+        <a href={item.link} target="_blank" class="flex flex-col bg-white p-5 group relative transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+          <div class="w-full h-[200px] overflow-hidden border-2 bg-gray-100 flex items-center justify-center">
+           {item.cover.endsWith('.pdf') ? (
+             <div class="text-center p-4">
+               <div class="text-4xl mb-2">📄</div>
+               <p class="text-sm font-medium">PDF Document</p>
+             </div>
+           ) : (
+             <img src={item.cover} alt={item.name} class="w-full h-full object-cover" />
+           )}
           </div>
           <div class="space-y-1 pt-4">
             <div class="flex pr-2">
