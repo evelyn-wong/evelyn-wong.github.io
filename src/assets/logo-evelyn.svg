@@ -1,0 +1,23 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#FEFFF0"/>
+
+  <!-- Geometric "E" for Evelyn -->
+  <!-- Vertical line -->
+  <rect x="35" y="35" width="12" height="130" fill="#000000"/>
+
+  <!-- Top horizontal -->
+  <rect x="35" y="35" width="135" height="12" fill="#000000"/>
+
+  <!-- Middle horizontal -->
+  <rect x="35" y="95" width="120" height="12" fill="#000000"/>
+
+  <!-- Bottom horizontal -->
+  <rect x="35" y="153" width="135" height="12" fill="#000000"/>
+
+  <!-- Accent: small circle (architectural element) -->
+  <circle cx="165" cy="55" r="12" fill="#FFDC58" stroke="#000000" stroke-width="2"/>
+
+  <!-- Small accent line (design element) -->
+  <line x1="175" y1="140" x2="175" y2="170" stroke="#FFDC58" stroke-width="4"/>
+</svg>
