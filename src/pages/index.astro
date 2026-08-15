@@ -11,17 +11,18 @@ import CallToAction from '../components/CallToAction.astro'
 import Works from '../components/Works.astro'
 import Service from '../components/Service.astro'
 
+const lang = "es";
 ---
 
 
-<Layout>
-  <Header />
-  <Hero />
+<Layout lang={lang}>
+  <Header lang={lang} />
+  <Hero lang={lang} />
   <Tools />
-  <Service />
+  <Service lang={lang} />
   <Works />
-  <Reviews />
-  <CallToAction />
-  <Footer />
+  <Reviews lang={lang} />
+  <CallToAction lang={lang} />
+  <Footer lang={lang} />
 </Layout>
 
