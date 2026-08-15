@@ -2,10 +2,18 @@
 import logoStar from '../assets/logo-star.svg'
 import svgPinkStar from '../assets/pink-star.svg'
 import { author, buy } from '../sample'
+import { useTranslations } from '../i18n/ui'
+
+interface Props {
+  lang?: "es" | "en";
+}
+
+const { lang = "es" } = Astro.props as Props;
+const t = useTranslations(lang);
 
 const links = [
-    { name: 'Inicio', path: '/', target: '_self' },
-    { name: 'Contacto', path: buy.link, target: '_blank' },
+    { nameKey: 'nav.home', path: lang === "en" ? '/en/' : '/', target: '_self' },
+    { nameKey: 'nav.contact', path: buy.link, target: '_blank' },
 ]
 
 const { pathname } = Astro.url
@@ -35,13 +43,18 @@ const { pathname } = Astro.url
                 <i class="ri-menu-2-line text-2xl"></i>
             </a>
             <ul class="hidden md:flex">
-                {links.map(item => ( 
+                {links.map(item => (
                     <li class="border-l-2 border-black p-3 py-4">
                         <a href={item.path} target={item.target} class="whitespace-nowrap relative flex items-center before:absolute before:left-0 before:bottom-1 before:h-[8px] before:w-0 before:bg-[var(--yellow)] before:transition-all before:duration-300 hover:before:w-full">
-                            <span class="relative z-5">{item.name} {pathname == item.path ? '//' : ''}</span>
+                            <span class="relative z-5">{t(item.nameKey as any)} {pathname == item.path ? '//' : ''}</span>
                         </a>
                     </li>
                 ))}
+                <li class="border-l-2 border-black p-3 py-4">
+                    <a href={lang === "en" ? "/" : "/en/"} target="_self" class="whitespace-nowrap relative flex items-center before:absolute before:left-0 before:bottom-1 before:h-[8px] before:w-0 before:bg-[var(--yellow)] before:transition-all before:duration-300 hover:before:w-full">
+                        <span class="relative z-5">{lang === "es" ? "EN" : "ES"}</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -55,13 +68,18 @@ const { pathname } = Astro.url
         </a>
     </div>
     <ul class="flex flex-col justify-center items-center gap-4 md:hidden">
-        {links.map(item => ( 
+        {links.map(item => (
             <li class="py-3">
                 <a href={item.path} target={item.target} class="p-3 whitespace-nowrap text-2xl font-bold">
-                    {item.name} {pathname == item.path ? '//' : ''}
+                    {t(item.nameKey as any)} {pathname == item.path ? '//' : ''}
                 </a>
             </li>
         ))}
+        <li class="py-3">
+            <a href={lang === "en" ? "/" : "/en/"} target="_self" class="p-3 whitespace-nowrap text-2xl font-bold">
+                {lang === "es" ? "EN" : "ES"}
+            </a>
+        </li>
     </ul>
   </div>
 

@@ -1,13 +1,13 @@
 const author = {
   name: `Evelyn Wong`,
   nickname: `Evelyn`,
-  email: "mailto:jitzian@gmail.com",
-  phone: "+57 (your phone here)",
+  email: "mailto:wongruiz343@gmail.com",
+  phone: "+52 55 1081 7320",
 };
 
 const buy = {
   title: `Get in Touch`,
-  link: `mailto:jitzian@gmail.com`,
+  link: `mailto:wongruiz343@gmail.com`,
 };
 
 export { author, buy };

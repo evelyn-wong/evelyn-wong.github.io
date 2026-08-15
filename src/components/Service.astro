@@ -5,32 +5,45 @@ import uiIcon from '../assets/services/ui.svg'
 import protoIcon from '../assets/services/proto.svg'
 
 import svgPinkStar from '../assets/pink-star.svg'
+import { useTranslations } from '../i18n/ui'
+
+interface Props {
+  lang?: "es" | "en";
+}
+
+const { lang = "es" } = Astro.props as Props;
+const t = useTranslations(lang);
 
 const stats = [
-  { name: 'Proyectos', value: '30+' },
-  { name: 'Satisfaccion', value: '98%' },
-  { name: 'Experiencia', value: '8+ anos' },
+  { nameKey: 'service.projects', valueKey: 'service.stats.projects' },
+  { nameKey: 'service.satisfaction', valueKey: 'service.stats.satisfaction' },
+  { nameKey: 'service.experience', valueKey: 'service.stats.experience' },
 ]
 
 const services = [
   {
-     name: 'Diseno Arquitectonico',
-     desc: 'Proyectos residenciales, comerciales y educativos con enfoque integral',
+     nameKey: 'service.design.name',
+     descKey: 'service.design.desc',
      icon: researchIcon
   },
   {
-     name: 'Planificacion Espacial',
-     desc: 'Optimizacion de espacios y funcionalidad en proyectos de cualquier escala',
+     nameKey: 'service.planning.name',
+     descKey: 'service.planning.desc',
      icon: wireIcon
   },
   {
-     name: 'Modelos 3D y Visualizacion',
-     desc: 'Renderizados profesionales para presentacion de proyectos',
+     nameKey: 'service.3d.name',
+     descKey: 'service.3d.desc',
      icon: uiIcon
   },
   {
-     name: 'Documentacion Tecnica',
-     desc: 'Planos detallados, especificaciones y detalles constructivos',
+     nameKey: 'service.docs.name',
+     descKey: 'service.docs.desc',
+     icon: protoIcon
+  },
+  {
+     nameKey: 'service.admin.name',
+     descKey: 'service.admin.desc',
      icon: protoIcon
   },
 ]
@@ -44,7 +57,7 @@ const services = [
     <div class="max-w-4xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[60%_40%] py-10 relative">
         <div class="flex items-end">
-          <h1 class="text-4xl">Servicios profesionales de diseno arquitectonico</h1>
+          <h1 class="text-4xl">{t("service.title")}</h1>
           <svg class="size-20" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.5479 4.4031C18.6713 5.80238 19.9271 9.81219 21.7001 11.2897C23.0602 12.3947 24.0665 11.888 24.3315 9.94798C24.6359 7.90326 23.1377 5.00064 21.4323 4.27109C20.1328 3.70088 19.9764 3.72964 19.5479 4.4031Z" fill="black"/>
             <path d="M7.84038 5.33376C6.96374 6.73304 8.21957 10.7429 9.99262 12.2204C11.3527 13.3254 12.359 12.8186 12.624 10.8786C12.9284 8.83392 11.4302 5.9313 9.72476 5.20175C8.42528 4.63154 8.26883 4.66031 7.84038 5.33376Z" fill="black"/>
@@ -57,8 +70,8 @@ const services = [
         <div class="flex flex-col border-l-2 border-r-2 md:border-b-2 md:border-r-0 md:border-l-0">
           {stats.map(item => (
             <div class="flex flex-col p-3 md:p-6  md:border-b-2 last:border-none">
-              <h1 class="text-2xl font-medium">{item.value}</h1>
-              <p class="text-sm">{item.name}</p>
+              <h1 class="text-2xl font-medium">{t(item.valueKey as any)}</h1>
+              <p class="text-sm">{t(item.nameKey as any)}</p>
             </div>
           ))}
         </div>
@@ -66,8 +79,8 @@ const services = [
           {services.map(item => (
            <div class="flex flex-col gap-2 p-4 md:p-6 border-l-2 border-b-2">
              <img src={item.icon.src} width="40" alt="" />
-             <h3 class="text-xl font-medium">{item.name}</h3>
-             <p>{item.desc}</p>
+             <h3 class="text-xl font-medium">{t(item.nameKey as any)}</h3>
+             <p>{t(item.descKey as any)}</p>
            </div>
           ))}
         </div>
